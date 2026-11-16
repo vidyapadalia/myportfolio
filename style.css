@@ -384,3 +384,56 @@ footer {
     border-bottom: 1px solid #17151c;
     padding-bottom: 5px;
 }
+
+/* INTERNSHIP */
+
+.internship {
+    background: #eee6ff;
+}
+
+.internship-intro {
+    max-width: 550px;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 55px;
+}
+
+.internship-item {
+    display: grid;
+    grid-template-columns: 50px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 30px 0;
+    border-top: 1px solid #cfc5df;
+}
+
+.internship-item h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.internship-item span {
+    font-family: Georgia, serif;
+    color: #79668e;
+}
+
+.internship-item p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.internship-item .status {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #79668e;
+}
+
+@media (max-width: 700px) {
+    .internship-item {
+        grid-template-columns: 30px 1fr;
+    }
+
+    .internship-item .status {
+        grid-column: 2;
+    }
+}
