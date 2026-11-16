@@ -1,45 +1,45 @@
 
-// Typing animation
-const typingText = [
-    "Computer Science Student",
-    "Web Developer",
-    "Creative Learner"
-];
-
-let textIndex = 0;
-let charIndex = 0;
-
-function typeText() {
-
-    let currentText = typingText[textIndex];
-
-    document.getElementById("typing").textContent =
-        currentText.substring(0, charIndex + 1);
-
-    charIndex++;
-
-    if (charIndex === currentText.length) {
-        setTimeout(() => {
-            charIndex = 0;
-            textIndex = (textIndex + 1) % typingText.length;
-            typeText();
-        }, 1500);
-    } else {
-        setTimeout(typeText, 100);
-    }
-}
-
-typeText();
+// Select all sections
+const sections = document.querySelectorAll("section");
 
 
-// Navbar active link
-const navLinks = document.querySelectorAll("nav ul a");
+// Scroll animation
+const observer = new IntersectionObserver(function(entries) {
 
-window.addEventListener("scroll", function () {
+    entries.forEach(function(entry) {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+}, {
+    threshold: 0.15
+});
+
+
+// Apply animation to sections
+sections.forEach(function(section) {
+
+    section.style.opacity = "0";
+    section.style.transform = "translateY(30px)";
+    section.style.transition = "all 0.8s ease";
+
+    observer.observe(section);
+
+});
+
+
+// Highlight active navigation link
+window.addEventListener("scroll", function() {
 
     let current = "";
 
-    document.querySelectorAll("section").forEach(section => {
+    sections.forEach(function(section) {
 
         const sectionTop = section.offsetTop - 150;
 
@@ -49,33 +49,14 @@ window.addEventListener("scroll", function () {
 
     });
 
-    navLinks.forEach(link => {
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
 
-        link.classList.remove("active");
+        link.style.borderBottom = "none";
 
         if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
+            link.style.borderBottom = "1px solid #302080";
         }
 
     });
 
-});
-
-
-// Section reveal animation
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-
-    });
-
-});
-
-document.querySelectorAll("section").forEach(section => {
-    section.classList.add("hidden");
-    observer.observe(section);
 });
