@@ -113,21 +113,25 @@ nav {
     object-position: center;
 }
 
+
 /* ABOUT SECTION */
 #about {
     padding: 100px 8%;
     background-color: #fff;
 }
 
-.about-heading h2,
-#education h2,
-#projects h2,
-#contact h2 {
+#about .section-label {
+    display: inline-block;
+    background-color: #f5e96b;
+    padding: 5px 10px;
+}
+
+.about-title {
     font-family: Georgia, serif;
-    font-size: clamp(45px, 6vw, 75px);
+    font-size: 75px;
     line-height: 0.95;
     color: #302080;
-    margin-bottom: 60px;
+    margin: 25px 0 70px;
 }
 
 .about-layout {
@@ -137,62 +141,150 @@ nav {
     align-items: center;
 }
 
+/* ACADEMIC JOURNEY */
 .journey h3 {
-    font-size: 15px;
-    margin-bottom: 30px;
+    font-size: 16px;
+    margin-bottom: 35px;
+    background-color: #f5e96b;
+    display: inline-block;
+    padding: 5px;
 }
 
 .journey-item {
-    border-left: 1px solid #302080;
-    padding: 5px 0 20px 15px;
-    margin-bottom: 20px;
+    border-left: 2px solid #302080;
+    padding: 10px 0 20px 15px;
+    margin-bottom: 25px;
+    position: relative;
 }
 
 .journey-item span {
+    font-size: 11px;
     color: #9273cb;
-    font-size: 12px;
+    letter-spacing: 1px;
 }
 
 .journey-item h4 {
-    margin: 8px 0;
-    font-size: 14px;
+    font-size: 16px;
+    margin: 10px 0;
 }
 
 .journey-item p {
     font-size: 12px;
-    line-height: 1.6;
-    color: #666;
+    line-height: 1.7;
+    color: #555;
 }
 
-.about-image img {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
+.journey-item small {
+    display: block;
+    margin-top: 8px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #9273cb;
 }
 
-.about-image p {
+/* PHOTO PLACEHOLDER */
+.about-image {
+    position: relative;
     text-align: center;
+}
+
+.photo-placeholder {
+    height: 480px;
+    background-color: #e9e4d7;
+    border: 8px solid white;
+    box-shadow: 0 2px 8px #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-placeholder span {
+    font-size: 55px;
+    color: #302080;
+}
+
+.photo-placeholder h3 {
+    font-family: Georgia, serif;
+    font-size: 45px;
+    color: #302080;
+}
+
+.photo-placeholder p {
     font-size: 10px;
     letter-spacing: 2px;
-    margin-top: 12px;
+    margin-top: 15px;
 }
 
+.image-caption {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+.photo-note {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #302080;
+}
+
+/* PERSONAL INTRODUCTION */
 .about-text h3 {
-    font-size: 23px;
-    margin-bottom: 20px;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #302080;
+    padding-bottom: 10px;
 }
 
 .about-text p {
     font-size: 13px;
-    line-height: 1.8;
-    margin-bottom: 18px;
+    line-height: 1.9;
+    margin-bottom: 20px;
     color: #444;
 }
 
-.about-text .about-note {
+.about-text b {
     color: #302080;
-    font-weight: bold;
 }
+
+.about-text .about-note {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #302080;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+/* MOBILE ABOUT SECTION */
+@media (max-width: 800px) {
+
+    .about-title {
+        font-size: 60px;
+        margin-bottom: 45px;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .photo-placeholder {
+        height: 400px;
+    }
+
+    .photo-note {
+        right: 10px;
+    }
+
+}
+
+    
+   
 
 /* EDUCATION SECTION */
 #education {
